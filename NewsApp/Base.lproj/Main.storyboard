@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GLe-QT-4ic">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--新闻速览-->
+        <scene sceneID="MXO-oU-2xq">
+            <objects>
+                <tableViewController id="nvW-77-Y2q" customClass="NewsTableViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="29T-LU-9qp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="vJg-h3-8kz">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vJg-h3-8kz" id="l22-2J-nSb">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="yPB-ST-jeg" kind="show" identifier="showWeb" id="5q3-wF-c71"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="nvW-77-Y2q" id="swX-2k-h93"/>
+                            <outlet property="delegate" destination="nvW-77-Y2q" id="Ahb-Ym-PIs"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="新闻速览" id="YOY-l1-MWv"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TQy-EU-jWO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1430" y="-417"/>
+        </scene>
+        <!--新闻详细-->
+        <scene sceneID="EPG-EU-VxQ">
+            <objects>
+                <viewController storyboardIdentifier="WebVC" id="yPB-ST-jeg" customClass="WebViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5vl-CB-qax">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7nW-Xr-GcT">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7nW-Xr-GcT" firstAttribute="bottom" secondItem="W46-Di-J8J" secondAttribute="bottom" id="Adk-1n-hiW"/>
+                            <constraint firstItem="7nW-Xr-GcT" firstAttribute="trailing" secondItem="W46-Di-J8J" secondAttribute="trailing" id="F4g-TK-Gp8"/>
+                            <constraint firstItem="7nW-Xr-GcT" firstAttribute="top" secondItem="W46-Di-J8J" secondAttribute="top" id="d6s-hR-zH8"/>
+                            <constraint firstItem="7nW-Xr-GcT" firstAttribute="leading" secondItem="W46-Di-J8J" secondAttribute="leading" id="eVJ-AM-yCm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="W46-Di-J8J"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="新闻详细" id="Rad-76-2S5"/>
+                    <connections>
+                        <outlet property="browser" destination="7nW-Xr-GcT" id="EiI-WS-52K"/>
+                        <outlet property="nvgItem" destination="Rad-76-2S5" id="rdQ-L4-WBD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Hu-ke-Ibg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2288" y="-58"/>
+        </scene>
+        <!--我的收藏-->
+        <scene sceneID="bhW-oZ-abX">
+            <objects>
+                <tableViewController id="ePP-Kn-dgz" customClass="CollectionTableViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yL3-bd-8ef">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5nl-UE-Be4">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5nl-UE-Be4" id="V2R-Gr-Tbu">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="yPB-ST-jeg" kind="show" identifier="showCollectedWeb" id="WRU-0q-yBa"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ePP-Kn-dgz" id="RIp-7x-s3x"/>
+                            <outlet property="delegate" destination="ePP-Kn-dgz" id="m2H-Nq-aYm"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="我的收藏" id="kuo-1C-m3H"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b2G-v9-9s8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1429" y="301"/>
+        </scene>
+        <!--收藏-->
+        <scene sceneID="HD2-Kt-Y2Y">
+            <objects>
+                <navigationController id="hcq-iY-Gzc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="收藏" image="iconfont-collection" id="LIx-yr-eTW"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2qB-oz-BFt">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ePP-Kn-dgz" kind="relationship" relationship="rootViewController" id="Nix-Fs-cAD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CeJ-Fw-HLa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="604" y="301"/>
+        </scene>
+        <!--新闻速览-->
+        <scene sceneID="WBA-Lf-fey">
+            <objects>
+                <navigationController id="uqj-eY-ccH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="新闻速览" image="iconfont-news" id="pgD-1c-IOq"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Wui-Og-yaF">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="nvW-77-Y2q" kind="relationship" relationship="rootViewController" id="MGy-ve-A0F"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rk2-h2-fZ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="594" y="-417"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="caT-44-jt9">
+            <objects>
+                <tabBarController storyboardIdentifier="vcMain" id="GLe-QT-4ic" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FKY-nw-7Xo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="uqj-eY-ccH" kind="relationship" relationship="viewControllers" id="mqw-2f-v15"/>
+                        <segue destination="hcq-iY-Gzc" kind="relationship" relationship="viewControllers" id="jSz-n6-0oG"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AuK-9S-MEa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-228" y="-3"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="iconfont-collection" width="30" height="30"/>
+        <image name="iconfont-news" width="30" height="30"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="WRU-0q-yBa"/>
+    </inferredMetricsTieBreakers>
+</document>
